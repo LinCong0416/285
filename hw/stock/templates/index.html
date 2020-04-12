@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div style="text-align:center">
+		<h1>Stock Calculator</h1>
+		<form method="POST" action="/result" style="margin-top:5px; border-top:3px solid #000">
+            {% csrf_token %}
+			 <div style="margin-top:5px;float: left">
+			    <label>A stock symbol</label>
+			    <div>
+			      <input type="text" name="symbol" placeholder="Please input the stock symbol...">
+			    </div>
+             </div>
+             <div style="margin-top:5px;float: left">
+			    <label>Allotment</label>
+			    <div>
+			      <input type="text" name="allotment" placeholder="Please input number of shares...">
+			    </div>
+             </div>
+             <div style="margin-top:5px;float: left">
+			    <label>Final share price</label>
+			    <div>
+			      <input type="text" name="sPrice" placeholder="please input in dollars...">
+			    </div>
+             </div>
+             <div style="margin-top:5px;float: left">
+			    <label>Sell commission</label>
+			    <div>
+			      <input type="text" name="cPrice1" placeholder="Please input in dollars...">
+			    </div>
+             </div>
+			 <div style="margin-top:5px;float: left">
+			    <label>Inital share price</label>
+			    <div>
+			      <input type="text" name="iPrice" placeholder="Please input in dollars...">
+			    </div>
+             </div>
+             <div style="margin-top:5px;float: left">
+                  <label>Buy commission</label>
+                  <div>
+                      <input type="text" name="cPrice2" placeholder="please input in dollars...">
+                  </div>
+             </div>
+             <div style="margin-top:5px;float: left">
+			    <label>Captial gain tax rate</label>
+                  <div>
+                      <input type="text" name="rate" placeholder="Please input in %...">
+                  </div>
+             </div>
+             <div style="margin-top:15px">
+			    <div>
+			      <input type="submit"  width="100" value="Submit" name="submit" border="0">
+			    </div>
+             </div>
+        </form>
+	</div>
+    <div style="margin-top:30px;">
+        <table border="1">
+            <tr>
+                <th>Proceeds (Allotment x Final share price)</th>
+                <th>Cost (Allotment x Initial Share Price + commissions + Tax on Capital Gain)</th>
+                <th>Net Profit (in dollars)</th>
+                <th>Return on investment (in %)</th>
+                <th>Break even price (in dollars)</th>
+            </tr>
+            <tr>
+                <th>{{ data1 }}</th>
+                <th>{{ data2 }}</th>
+                <th>{{ data3 }}</th>
+                <th>{{ data4 }}</th>
+                <th>{{ data5 }}</th>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
