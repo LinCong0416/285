@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+      <div>
+        <div style="text-align:center">
+		<h1>Stock Finance Search</h1>
+		<form method="POST" action="/result2" style="margin-top:5px; border-top:3px solid #000">
+            {% csrf_token %}
+			 <div style="margin-top:5px;float: left">
+			    <label>A stock symbol</label>
+			    <div>
+			      <input type="text" name="s" placeholder="Input A symbol...">
+			    </div>
+             </div>
+            <div style="margin-top:25px">
+                <div>
+                    <input type="submit"  width="100" value="Submit" name="submit" border="0">
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    <div style="margin-top:30px;">
+        <table border="1">
+            <tr>
+                <th>Current date and time</th>
+                <th>Full name of the company</th>
+                <th>Stock price</th>
+                <th>Value changes </th>
+                <th>Percentage changes </th>
+            </tr>
+            <tr>
+                <th>{{ data1 }}</th>
+                <th>{{ data2 }}</th>
+                <th>{{ data3 }}</th>
+                <th>{{ data4 }}</th>
+                <th>{{ data5 }}</th>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
